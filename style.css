@@ -73,9 +73,7 @@ header nav {
 header nav ul{
     display: flex;
     justify-content: space-between;
-    gap: 46px;
     align-items: center;
- 
 }
 
 .upbuttons{
@@ -83,7 +81,18 @@ header nav ul{
    font-weight: 800;
    margin:0;
    background-color: #17153B;
-   color: white
+   color: white;
+   padding: 16px;
+}
+nav form{
+    padding: 16px;
+}
+input{
+    padding:10px;
+}
+
+form{
+   left: 15px;
 }
 
 .upbuttons:hover{

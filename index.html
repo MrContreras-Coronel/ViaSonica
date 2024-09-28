@@ -13,22 +13,22 @@
 </head>
 <body>
    <header>
-    <nav>
+    <nav id="main-nav">
         <img src="/assets/vector.svg"><button class="upbuttons">Via Sonica</button>
         <ul>
-        <li class="upbuttons"><button class="upbuttons">Play Anything</button></li>
-        <li class="upbuttons"><button class="upbuttons">Buscar</button></li>
-        <li class="upbuttons"><button class="upbuttons">Ordenar por:</button>
-        </li>
-        <li><form><input type="checkbox" id="tit">Titulo 
-                <input type="checkbox" id="author">Autor 
-                <input type="checkbox" id="Album">Album 
-              </form></li>
+        <li class="upbuttons">Play Anything </li>
+        <li class="upbuttons" id="search-song">Buscar</li>
         </ul>
-       
+        <form>
+            <!--Vaina super extraña-->
+            <div>    Ordenar por:
+                <input type="checkbox" id="titulo" checked/> Titulo
+                <input type="checkbox" id="author" />Autor 
+                <input type="checkbox" id="Album"/>Album 
+            </div>    </form>
     </nav>
    </header> 
-     <div id="owl">
+     <div id="owl"> 
 
      </div>
 
