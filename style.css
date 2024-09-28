@@ -34,7 +34,7 @@
     
 }
 #owl{
-    background-image: "assets/fondo.jpg";
+    background-image: url("/assets/fondo.jpg");
     background-position: center;
     background-size: cover;
     height: max-content;
@@ -55,6 +55,7 @@ header {
     top:0;
     align-items: center;
     text-align: center;
+    
 }
 
 header nav {
@@ -63,4 +64,12 @@ header nav {
     gap: 46px;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-
+header nav ul{
+    display: flex;
+    justify-content: space-between;
+    gap: 46px;
+    padding-top: 15px;
+}
+header nav ul li{
+   font-style: bold;
+}
