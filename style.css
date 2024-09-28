@@ -23,16 +23,21 @@
 
 
 .box{
-    background-color: rgb(151, 78, 136);
+    background-color: rgb(223, 113, 201);
     color: white;
-    padding: 60px;
+    padding: 10px;
     border-radius: 50px;
-    font-weight: 600;
+    font-weight: 500;
     font-family: Roboto, sans-serif;
-    height: 250px;
-    align-items: end;
-    
+    align-items: center;
+    justify-content: flex-start;
+    display:flex;
+    flex-direction: column;   
+    text-align: center;
 }
+
+
+
 #owl{
     background-image: url("/assets/fondo.jpg");
     background-position: center;
@@ -41,7 +46,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
     justify-content: center;
-    gap: 10px;
+    gap: 30px;
     padding: 20px;
 
 }
@@ -52,10 +57,11 @@ header {
     color: white;
     margin: 0px;
     position: sticky;
+    z-index: 60;
     top:0;
     align-items: center;
     text-align: center;
-    
+        
 }
 
 header nav {
@@ -68,8 +74,36 @@ header nav ul{
     display: flex;
     justify-content: space-between;
     gap: 46px;
-    padding-top: 15px;
+    align-items: center;
+ 
 }
-header nav ul li{
+
+.upbuttons{
    font-style: bold;
+   font-weight: 800;
+   margin:0;
+   background-color: #17153B;
+   color: white
+}
+
+.upbuttons:hover{
+    background-color: blueviolet;
+    margin:0px
+}
+
+.pu{
+    max-width:70%;
+    padding:6px;
+    border-radius: 15px;
+    margin:3px;
+    transition: .3s ease-in-out;
+    perspective: 1000px;
+}
+
+.box:hover pu{
+   transform: scaleZ(0.1)
+}
+
+.sp{
+    font-weight: 600;
 }
