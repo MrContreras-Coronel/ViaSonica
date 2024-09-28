@@ -29,13 +29,21 @@
     border-radius: 50px;
     font-weight: 600;
     font-family: Roboto, sans-serif;
+    height: 250px;
+    align-items: end;
     
 }
 #owl{
+    background-image: "assets/fondo.jpg";
+    background-position: center;
+    background-size: cover;
+    height: max-content;
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
     justify-content: center;
     gap: 10px;
+    padding: 20px;
+
 }
 
 header {
@@ -45,6 +53,8 @@ header {
     margin: 0px;
     position: sticky;
     top:0;
+    align-items: center;
+    text-align: center;
 }
 
 header nav {
@@ -53,3 +63,4 @@ header nav {
     gap: 46px;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
