@@ -37,7 +37,7 @@
 }
 
 .box2{
-    background-color: rgb(179, 77, 158);
+    background-color: #b34d9e;
     color: white;
     padding: 10px;
     border-radius: 50px;
@@ -126,12 +126,16 @@ header nav ul{
 }
 .ctrl{
     align-items: space-between;
-    flex-direction: row;
-    padding: 10px;
+    justify-content: space-between;
+    display: inline-flex;
+    padding: 30px;
+    gap: 40px;
 }
 .round{
     border-radius: 50%;
     background-color: aliceblue;
     box-shadow: #17153B;
     padding: 10px;
+    justify-content: center;
+    align-items: center;
 }
