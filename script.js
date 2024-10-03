@@ -5,6 +5,8 @@ const alphabetic = (a, b) => { return a.title > b.title };
 const url_insti = 'https://api.institutoalfa.org/api/songs/'
 var l = {}
 let el = []
+var index = 0
+
 let f = true
 var x = 0;
 function pausePlay(d){
@@ -22,16 +24,26 @@ function isPlaying(d){
 
 let menu = `
 <div class="ctrl">
-<div class="round"><img src="/assets/back.svg"></div>
-<div class="round"><img src="/assets/${isPlaying(f)}" onclick="f = pausePlay(f)"></div>
-<div class="round"><img src="/assets/forward.svg"></div>
+<div class="round" onclick= "play_Music(l[el[playPrevious(index--)]])"><img src="/assets/back.svg"></div>
+<div class="round" onclick="f = pausePlay(f)"><img src="/assets/${isPlaying(f)}"></div>
+<div class="round" onclick= "play_Music(l[el[playNext(index++)]])"><img src="/assets/forward.svg"></div>
 </div>
 `
+
+
+function playPrevious(x){
+   return x < 0? el.length-1 : x - 1
+}
+function playNext(x){
+   return x >= el.length ? 0 : x +1
+}
+
+
 
 function play_Music(g){
      
    
-     contenedor.innerHTML= `<div class="box2">  
+     contenedor.innerHTML= `<div class="box2" id="${g.id}">  
       <img src="${g.img}" class="pu">
                     ${g.titulo}
                     <span class="sp">Autor:</span>${g.autor}
@@ -40,7 +52,7 @@ function play_Music(g){
      ${menu}
      </div>`
      
-
+    return el.indexOf(g.id)
 
 }
 
@@ -58,7 +70,7 @@ axios.get(url_insti).then(
                     <span class="sp">Autor:</span>${song.author}
                     <span class="sp">Album:</span> ${song.album}
            `
-              l[song.audio.filename] = {img: imagenes_url+song.image.filename, audio: song_url + song.audio.filename,
+              l[song.audio.filename] = {id: song.audio.filename, img: imagenes_url+song.image.filename, audio: song_url + song.audio.filename,
                     autor: song.author, titulo: song.title, album: song.album
               }
 
@@ -70,7 +82,7 @@ axios.get(url_insti).then(
                          let idx = song.audio.filename;
                         
 
-                         play_Music(l[idx])
+                         index = play_Music(l[idx])
                     })   
                     
                        
