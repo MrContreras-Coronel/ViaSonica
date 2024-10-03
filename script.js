@@ -22,7 +22,9 @@ function isPlaying(d){
 
 let menu = `
 <div class="ctrl">
+<div class="round"><img src="/assets/back.svg"></div>
 <div class="round"><img src="/assets/${isPlaying(f)}" onclick="f = pausePlay(f)"></div>
+<div class="round"><img src="/assets/forward.svg"></div>
 </div>
 `
 
@@ -62,13 +64,11 @@ axios.get(url_insti).then(
 
               el.push(song.audio.filename)
               
-     // l.push({audio:song_url+song.audio.filename, img: imagenes_url+song.img.filename})
-        //   l.push({audio: song_url+soung.audio.filename, img: imagenes_url+song.audio.filename})
-                  
+     
                     contenedor.appendChild(songdiv)
                     songdiv.addEventListener("click",() => {
                          let idx = song.audio.filename;
-                         // Parametros : aud,img,titulo,autor,album,indx    
+                        
 
                          play_Music(l[idx])
                     })   
