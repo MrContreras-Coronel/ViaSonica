@@ -23,7 +23,7 @@
 
 
 .box{
-    background-color: rgb(179, 77, 158);
+    background-color: #b34d9e;
     color: white;
     padding: 10px;
     border-radius: 50px;
@@ -36,6 +36,23 @@
     text-align: center;
 }
 
+.box2{
+    background-color: rgb(179, 77, 158);
+    color: white;
+    padding: 10px;
+    border-radius: 50px;
+    font-weight: 500;
+    font-family: Roboto, sans-serif;
+    align-items: center;
+    justify-content: center;
+    display:flex;
+    flex-direction: column;   
+    text-align: center;
+    margin: 25%;
+    height: 900px;
+}
+
+
 
 
 #owl{
@@ -45,7 +62,7 @@
     height: max-content;
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
-    justify-content: center;
+    justify-content: flex-start;
     gap: 30px;
     padding: 20px;
 
@@ -106,4 +123,15 @@ header nav ul{
 
 .sp{
     font-weight: 600;
+}
+.ctrl{
+    align-items: space-between;
+    flex-direction: row;
+    padding: 10px;
+}
+.round{
+    border-radius: 50%;
+    background-color: aliceblue;
+    box-shadow: #17153B;
+    padding: 10px;
 }
