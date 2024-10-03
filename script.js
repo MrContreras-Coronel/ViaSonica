@@ -20,7 +20,9 @@ function isPlaying(d){
     return d? "pause.svg" : "play.svg"
 }
 
-
+function random_song(){
+ play_Music(l[el[Math.floor(Math.random()*100) % el.length]])
+}
 
 let menu = `
 <div class="ctrl">
