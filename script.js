@@ -2,8 +2,9 @@ let contenedor = document.getElementById('owl')
 const imagenes_url = "https://api.institutoalfa.org/api/songs/image/"
 const song_url = "https://api.institutoalfa.org/api/songs/audio/"
 const alphabetic = (a, b) => { return a.title > b.title };
+const url_insti = 'https://api.institutoalfa.org/api/songs'
 
-axios.get('https://api.institutoalfa.org/api/songs').then(
+axios.get(url_insti).then(
      (res) => {
           res.data.songs.sort(alphabetic)
                .map((song) => {
@@ -12,9 +13,9 @@ axios.get('https://api.institutoalfa.org/api/songs').then(
                     songdiv.setAttribute('class', 'box')
                     songdiv.innerHTML = `
 
-     <img src="${(imagenes_url + song.image.filename)}" class="pu">
-                    ${song.title} <br> <br>
-                    <span class="sp">Autor:</span>${song.author} <br>
+              <img src="${(imagenes_url + song.image.filename)}" class="pu">
+                    ${song.title}
+                    <span class="sp">Autor:</span>${song.author}
                     <span class="sp">Album:</span> ${song.album}
                     <audio id=${song.audio.id} src ="${song_url + song.audio.filename}">
                     </audio> `
@@ -27,15 +28,3 @@ axios.get('https://api.institutoalfa.org/api/songs').then(
                })    
      })
 
-let busq = document.getElementById("search-song")
-
-busq.addEventListener("click",() => {
-     let fufa = document.getElementById("main-nav")
-
-     fufa.innerHTML+=`
-     <form><input type="text" id="buscador" /></form>
-     
-     `
-
-
-})
