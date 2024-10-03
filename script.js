@@ -37,7 +37,7 @@ function playPrevious(x){
    return x <= 0? el.length-1 : x - 1
 }
 function playNext(x){
-   return x >= el.length ? 0 : x +1
+   return x >= el.length -1 ? 0 : x +1
 }
 
 
