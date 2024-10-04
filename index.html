@@ -20,9 +20,9 @@
         <li class="upbuttons"><button class="upbuttons">Buscar</button></li>
         <li class="upbuttons"><button class="upbuttons">Ordenar por:</button>
         </li>
-        <li><form><input type="checkbox" id="tit">Titulo 
-                <input type="checkbox" id="author">Autor 
-                <input type="checkbox" id="Album">Album 
+        <li><form><input type="radio" name="order" id="tit" onchange="checking()" checked>Titulo 
+                <input type="radio" name="order" onchange="checking()" id="author">Autor 
+                <input type="radio" name="order" onchange="checking()" id="album">Album 
               </form></li>
         </ul>
        
