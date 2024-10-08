@@ -10,13 +10,16 @@ const orden_album = (a, b) => { return a.album > b.album };
 let check_titulo = document.getElementById('tit')
 let check_author = document.getElementById('author')
 let check_album = document.getElementById('album')
-
 var l = {}
 let el = []
 var index = 0
 
 let f = true
 var x = 0;
+
+
+
+
 function pausePlay(d) {
 
      let con = document.getElementById('curr');
@@ -35,21 +38,27 @@ function random_song() {
 }
 
 let menu = `
-<input type="range" class="round" value=0.0>
+
 <div class="ctrl">
-<div class="round" onclick= "play_Music(l[el[playPrevious(index--)]])"><img src="/assets/back.svg"></div>
+
+<div class="round" onclick= "play_Music(l[el[playPrevious(index)]])"><img src="/assets/back.svg"></div>
 <div class="round" id="btnPlay" onclick="f = pausePlay(f)"><img src="/assets/${isPlaying(f)}"></div>
-<div class="round" onclick= "play_Music(l[el[playNext(index++)]])"><img src="/assets/forward.svg"></div>
+<div class="round" onclick= "play_Music(l[el[playNext(index)]])"><img src="/assets/forward.svg"></div>
 </div>
-<h2>${undefined}</h2>
+<h2> ${undefined}</h2>
+<h2>${dur}</h2>
 `
 
 
 function playPrevious(x) {
-     return x <= 0 ? el.length - 1 : x - 1
+     x = x <= 0 ? el.length - 1 : x - 1
+     index = x
+     return x;
 }
 function playNext(x) {
-     return x >= el.length - 1 ? 0 : x + 1
+     x = x >= el.length - 1 ? 0 : x + 1
+     index = x;
+     return x;
 }
 
 
@@ -57,12 +66,13 @@ function playNext(x) {
 function play_Music(g) {
 
 
+   
      contenedor.innerHTML = `<div class="box2" id="${g.id}">  
       <img src="${g.img}" class="pu">
                     ${g.titulo}
                     <span class="sp">Autor:</span>${g.autor}
                     <span class="sp">Album:</span> ${g.album}   
-     <audio id="curr" src="${g.audio}" controls autoplay></audio>
+     <audio id="curr" src="${g.audio}" autoplay></audio>
      ${menu}
      </div>`
 
@@ -73,6 +83,8 @@ function play_Music(g) {
 
 function consumeAPI(sort) {
      contenedor.innerHTML = ""
+     el = []
+
      axios.get(url_insti).then(
           (res) => {
                res.data.songs.sort(sort)
@@ -87,18 +99,22 @@ function consumeAPI(sort) {
                     <span class="sp">Autor:</span>${song.author}
                     <span class="sp">Album:</span> ${song.album}
            `
+
+
+
+
                          l[song.audio.filename] = {
                               id: song.audio.filename, 
                               img: imagenes_url + song.image.filename, 
                               audio: song_url + song.audio.filename,
                               autor: song.author, 
                               titulo: song.title, 
-                              album: song.album
+                              album: song.album,
                          }
-
+               
                          el.push(song.audio.filename)
-
-
+               
+         
                          contenedor.appendChild(songdiv)
                          songdiv.addEventListener("click", () => {
                               let idx = song.audio.filename;
@@ -106,6 +122,7 @@ function consumeAPI(sort) {
 
                               index = play_Music(l[idx])
                          })
+                  
 
 
                     })
@@ -123,6 +140,6 @@ function checking() {
      } else if (check_album.checked) {
           consumeAPI(orden_album)
      }
-
+    
 }
 
