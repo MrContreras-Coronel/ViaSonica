@@ -46,7 +46,7 @@ let menu = `
 <div class="round" onclick= "play_Music(l[el[playNext(index)]])"><img src="/assets/forward.svg"></div>
 </div>
 <h2> ${undefined}</h2>
-<h2>${dur}</h2>
+<h2></h2>
 `
 
 
