@@ -19,7 +19,7 @@ var x = 0;
 
 let busq = (a) => a;
 
-function sear(x){
+function sear(x) {
      busq = (a) => a.title.toLocaleLowerCase().startsWith(x.toLocaleLowerCase())
      consumeAPI(alphabetic)
 }
@@ -41,16 +41,6 @@ function random_song() {
      play_Music(l[el[Math.floor(Math.random() * el.length)]])
 }
 
-let menu = `
-
-<div class="ctrl">
-
-<div class="round" onclick= "play_Music(l[el[playPrevious(index)]])"><img src="/assets/back.svg"></div>
-<div class="round" id="btnPlay" onclick="f = pausePlay(f)"><img src="/assets/${isPlaying(f)}"></div>
-<div class="round" onclick= "play_Music(l[el[playNext(index)]])"><img src="/assets/forward.svg"></div>
-</div>
-<h2></h2>
-`
 
 
 function playPrevious(x) {
@@ -68,8 +58,16 @@ function playNext(x) {
 
 function play_Music(g) {
 
+     let menu = `
 
-   
+     <div class="ctrl">
+     <div class="round" onclick= "play_Music(l[el[playPrevious(index)]])"><img src="/assets/back.svg"></div>
+     <div class="round" id="btnPlay" onclick="f = pausePlay(f)"><img src="/assets/${isPlaying(f)}"></div>
+     <div class="round" onclick= "play_Music(l[el[playNext(index)]])"><img src="/assets/forward.svg"></div>
+     </div>
+      `
+
+
      contenedor.innerHTML = `<div class="box2" id="${g.id}">  
       <img src="${g.img}" class="pu">
                     ${g.titulo}
@@ -78,6 +76,7 @@ function play_Music(g) {
      <audio id="curr" src="${g.audio}" autoplay></audio>
      ${menu}
      </div>`
+     document.getElementById('buscame').value= ""
 
      return el.indexOf(g.id)
 
@@ -88,7 +87,7 @@ function consumeAPI(sort) {
      contenedor.innerHTML = ""
      el = []
      l = {}
-     
+
      axios.get(url_insti).then(
           (res) => {
                console.log(res.data.songs.sort(sort))
@@ -106,17 +105,17 @@ function consumeAPI(sort) {
            `
 
                          l[song.audio.filename] = {
-                              id: song.audio.filename, 
-                              img: imagenes_url + song.image.filename, 
+                              id: song.audio.filename,
+                              img: imagenes_url + song.image.filename,
                               audio: song_url + song.audio.filename,
-                              autor: song.author, 
-                              titulo: song.title, 
+                              autor: song.author,
+                              titulo: song.title,
                               album: song.album,
                          }
-               
+
                          el.push(song.audio.filename)
-                
-         
+
+
                          contenedor.appendChild(songdiv)
                          songdiv.addEventListener("click", () => {
                               let idx = song.audio.filename;
@@ -132,7 +131,7 @@ function consumeAPI(sort) {
 checking()
 
 
-function checking() {    
+function checking() {
      if (check_titulo.checked) {
           consumeAPI(alphabetic)
      } else if (check_author.checked) {
@@ -140,6 +139,6 @@ function checking() {
      } else if (check_album.checked) {
           consumeAPI(orden_album)
      }
-    
+
 }
 
