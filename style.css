@@ -1,0 +1,142 @@
+/* a setear esa vaina*/
+* {
+    padding: unset; 
+    margin: unset;
+    border: unset;
+    text-decoration: none;
+    
+    /* 16 pixeles cada rem */
+    font-size: 1rem;
+    /* regular: 400, 900 black, 800 la negrota, negrita 700*/
+    font-weight: 400;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    list-style: none;
+    /* Propiedad muy importante*/
+    box-sizing: border-box;
+    
+    outline: unset; /* esto quita las líneas de los input */
+
+   /* margin y Padding automatizados*/
+}
+
+
+
+
+.box{
+    background-color: #b34d9e;
+    color: white;
+    padding: 10px;
+    border-radius: 50px;
+    font-weight: 500;
+    font-family: Roboto, sans-serif;
+    align-items: center;
+    justify-content: flex-start;
+    display:flex;
+    flex-direction: column;   
+    text-align: center;
+}
+
+.box2{
+    background-color: #b34d9e;
+    color: white;
+    padding: 10px;
+    border-radius: 50px;
+    font-weight: 500;
+    font-family: Roboto, sans-serif;
+    align-items: center;
+    justify-content: center;
+    display:flex;
+    flex-direction: column;   
+    text-align: center;
+    margin: 25%;
+    height: 900px;
+}
+
+
+
+
+#owl{
+    background-image: url("/assets/fondo.jpg");
+    background-position: center;
+    background-size: cover;
+    height: max-content;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    justify-content: flex-start;
+    gap: 30px;
+    padding: 20px;
+
+}
+
+header {
+    background-color: #17153B;
+    width: 100%;
+    color: white;
+    margin: 0px;
+    position: sticky;
+    z-index: 60;
+    top:0;
+    align-items: center;
+    text-align: center;
+        
+}
+
+header nav {
+    display:flex;
+    justify-content:center;
+    gap: 46px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+header nav ul{
+    display: flex;
+    justify-content: space-between;
+    gap: 46px;
+    align-items: center;
+ 
+}
+
+.upbuttons{
+   font-style: bold;
+   font-weight: 800;
+   margin:0;
+   background-color: #17153B;
+   color: white;
+   padding: 12px;
+}
+
+.upbuttons:hover{
+    background-color: blueviolet;
+    margin:0px
+}
+
+.pu{
+    max-width:70%;
+    padding:6px;
+    border-radius: 15px;
+    margin:3px;
+    transition: .3s ease-in-out;
+    perspective: 1000px;
+}
+
+.box:hover pu{
+   transform: scaleZ(0.1)
+}
+
+.sp{
+    font-weight: 600;
+}
+.ctrl{
+    align-items: space-between;
+    justify-content: space-between;
+    display: inline-flex;
+    padding: 30px;
+    gap: 40px;
+}
+.round{
+    border-radius: 50%;
+    background-color: aliceblue;
+    box-shadow: #17153B;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}

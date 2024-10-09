@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Via Sonica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <!-- link de axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+   <header>
+    <nav>
+        <img src="/assets/vector.svg"><button class="upbuttons" onclick="window.location.reload()">Via Sonica</button>
+        <ul>
+        <li onclick="random_song()"><button class="upbuttons">Play Anything</button></li>
+        <li><button class="upbuttons">Buscar</button></li>
+        <li><forms><input id="buscame" type="text" onchange="sear(buscame.value)"></forms></li>
+        <li><button class="upbuttons">Ordenar por:</button>
+        </li>
+        <li><form><input type="radio" name="order" id="tit" onchange="checking()" checked>Titulo 
+                <input type="radio" name="order" onchange="checking()" id="author">Autor 
+                <input type="radio" name="order" onchange="checking()" id="album">Album 
+              </form></li>
+        </ul>
+       
+    </nav>
+   </header>  
+     <div id="owl">
+    </div>
+    <footer class="foo-class">
+    </footer>
+ <script src="script.js"></script>   
+
+</body>
+</html>
