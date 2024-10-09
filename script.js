@@ -3,9 +3,9 @@ const imagenes_url = "https://api.institutoalfa.org/api/songs/image/"
 const song_url = "https://api.institutoalfa.org/api/songs/audio/"
 const url_insti = 'https://api.institutoalfa.org/api/songs/'
 
-const alphabetic = (a, b) => { return a.title > b.title };
-const orden_autor = (a, b) => { return a.author > b.author };
-const orden_album = (a, b) => { return a.album > b.album };
+const alphabetic = (a, b) => a.title.localeCompare(b.title);
+const orden_autor = (a, b) => a.author.localeCompare(b.author);
+const orden_album = (a, b) => a.album.localeCompare(b.album);
 
 let check_titulo = document.getElementById('tit')
 let check_author = document.getElementById('author')
@@ -84,9 +84,11 @@ function play_Music(g) {
 function consumeAPI(sort) {
      contenedor.innerHTML = ""
      el = []
-
+     l = {}
+     
      axios.get(url_insti).then(
           (res) => {
+               console.log(res.data.songs.sort(sort))
                res.data.songs.sort(sort)
                     .map((song) => {
 
@@ -113,7 +115,7 @@ function consumeAPI(sort) {
                          }
                
                          el.push(song.audio.filename)
-               
+                
          
                          contenedor.appendChild(songdiv)
                          songdiv.addEventListener("click", () => {
