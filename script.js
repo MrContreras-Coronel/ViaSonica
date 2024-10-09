@@ -17,8 +17,12 @@ var index = 0
 let f = true
 var x = 0;
 
+let busq = (a) => a;
 
-
+function sear(x){
+     busq = (a) => a.title.toLocaleLowerCase().startsWith(x.toLocaleLowerCase())
+     consumeAPI(alphabetic)
+}
 
 function pausePlay(d) {
 
@@ -45,7 +49,6 @@ let menu = `
 <div class="round" id="btnPlay" onclick="f = pausePlay(f)"><img src="/assets/${isPlaying(f)}"></div>
 <div class="round" onclick= "play_Music(l[el[playNext(index)]])"><img src="/assets/forward.svg"></div>
 </div>
-<h2> ${undefined}</h2>
 <h2></h2>
 `
 
@@ -89,7 +92,7 @@ function consumeAPI(sort) {
      axios.get(url_insti).then(
           (res) => {
                console.log(res.data.songs.sort(sort))
-               res.data.songs.sort(sort)
+               res.data.songs.filter(busq).sort(sort)
                     .map((song) => {
 
                          let songdiv = document.createElement('div')
@@ -101,9 +104,6 @@ function consumeAPI(sort) {
                     <span class="sp">Autor:</span>${song.author}
                     <span class="sp">Album:</span> ${song.album}
            `
-
-
-
 
                          l[song.audio.filename] = {
                               id: song.audio.filename, 
@@ -124,8 +124,6 @@ function consumeAPI(sort) {
 
                               index = play_Music(l[idx])
                          })
-                  
-
 
                     })
           })

@@ -100,7 +100,8 @@ header nav ul{
    font-weight: 800;
    margin:0;
    background-color: #17153B;
-   color: white
+   color: white;
+   padding: 12px;
 }
 
 .upbuttons:hover{
