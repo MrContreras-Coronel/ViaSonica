@@ -38,6 +38,7 @@ function isPlaying(d) {
 }
 
 function random_song() {
+     f=true
      play_Music(l[el[Math.floor(Math.random() * el.length)]])
 }
 
@@ -61,9 +62,9 @@ function play_Music(g) {
      let menu = `
 
      <div class="ctrl">
-     <div class="round" onclick= "play_Music(l[el[playPrevious(index)]])"><img src="/assets/back.svg"></div>
+     <div class="round" onclick= "f = true; play_Music(l[el[playPrevious(index)]])"><img src="/assets/back.svg"></div>
      <div class="round" id="btnPlay" onclick="f = pausePlay(f)"><img src="/assets/${isPlaying(f)}"></div>
-     <div class="round" onclick= "play_Music(l[el[playNext(index)]])"><img src="/assets/forward.svg"></div>
+     <div class="round" onclick= "f = true; play_Music(l[el[playNext(index)]])"><img src="/assets/forward.svg"></div>
      </div>
       `
 
@@ -84,8 +85,8 @@ function play_Music(g) {
 
 
 function consumeAPI(sort) {
+     f = true
      contenedor.innerHTML = ""
-     el = []
      l = {}
 
      axios.get(url_insti).then(
