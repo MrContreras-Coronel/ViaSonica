@@ -91,7 +91,7 @@ function consumeAPI(sort) {
 
      axios.get(url_insti).then(
           (res) => {
-               console.log(res.data.songs.sort(sort))
+              
                res.data.songs.filter(busq).sort(sort)
                     .map((song) => {
 
